@@ -177,18 +177,49 @@ Enter values between <b>0 and 10</b> for every feature.
 
 <div class="mb-3">
 
-<label>
-
-{{ feature }}
-
+<label class="form-label fw-bold">
+{{ feature.replace('_',' ').replace('Intensity',' Intensity').replace('Drainage',' Drainage').replace('Management',' Management').replace('Change',' Change').replace('Quality',' Quality').replace('Practices',' Practices').replace('Preparedness',' Preparedness').replace('Systems',' Systems').replace('Vulnerability',' Vulnerability').replace('Infrastructure',' Infrastructure').replace('Score',' Score').replace('Loss',' Loss').replace('Planning',' Planning').replace('Factors',' Factors') }}
 </label>
 
 <input
 type="number"
 step="0.01"
+min="0"
+max="10"
+placeholder="Enter value (0-10)"
 name="{{ feature }}"
 class="form-control"
 required>
+
+<small class="feature-info">
+
+{% if feature=="MonsoonIntensity" %}
+Strength of seasonal rainfall.
+
+{% elif feature=="TopographyDrainage" %}
+How efficiently rainwater drains from the land.
+
+{% elif feature=="RiverManagement" %}
+Quality of river maintenance and flood control.
+
+{% elif feature=="Deforestation" %}
+Extent of tree removal in the region.
+
+{% elif feature=="Urbanization" %}
+Level of urban development.
+
+{% elif feature=="ClimateChange" %}
+Impact of climate changes on flood risk.
+
+{% elif feature=="DrainageSystems" %}
+Efficiency of drainage infrastructure.
+
+{% elif feature=="WetlandLoss" %}
+Reduction of wetlands that naturally absorb water.
+
+{% endif %}
+
+</small>
 
 </div>
 

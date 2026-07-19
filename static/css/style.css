@@ -76,3 +76,14 @@ input{
 .instructions strong{
     color: #0d6efd;
 }
+.feature-info{
+    display:block;
+    color:#6c757d;
+    font-size:13px;
+    margin-top:4px;
+    font-style:italic;
+}
+
+.form-label{
+    font-weight:600;
+}
