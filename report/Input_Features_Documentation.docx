@@ -1,0 +1,25 @@
+Input Parameters Description
+
+The Flood Prediction System uses 20 input parameters that represent environmental, geographical, climatic, and human-related factors influencing flood occurrence. Each parameter is assigned a value between 0 and 10, where higher values indicate a stronger presence or impact of that factor.
+| S.No | Parameter                       | Description                                                                                                                                 | Range |
+| ---- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| 1    | MonsoonIntensity                | Measures the intensity of seasonal monsoon rainfall. Higher values indicate heavier rainfall, increasing flood probability.                 | 0–10  |
+| 2    | TopographyDrainage              | Represents the natural drainage capability of the terrain. Lower values indicate poor drainage and higher flood risk.                       | 0–10  |
+| 3    | RiverManagement                 | Indicates the effectiveness of river maintenance, including desilting and embankment management. Higher values represent better management. | 0–10  |
+| 4    | Deforestation                   | Measures the extent of forest cover loss. Higher values increase surface runoff and flood risk.                                             | 0–10  |
+| 5    | Urbanization                    | Represents the level of urban development. Highly urbanized regions have more impermeable surfaces, leading to greater runoff.              | 0–10  |
+| 6    | ClimateChange                   | Indicates the influence of climate change on rainfall variability and extreme weather events.                                               | 0–10  |
+| 7    | DamsQuality                     | Measures the structural condition and operational efficiency of dams. Higher values represent better-quality dams.                          | 0–10  |
+| 8    | Siltation                       | Represents sediment accumulation in rivers and reservoirs. High siltation reduces water-carrying capacity.                                  | 0–10  |
+| 9    | AgriculturalPractices           | Indicates the effectiveness of farming practices in reducing soil erosion and runoff.                                                       | 0–10  |
+| 10   | Encroachments                   | Measures illegal construction near rivers, lakes, and drainage systems. Higher values indicate more encroachments.                          | 0–10  |
+| 11   | IneffectiveDisasterPreparedness | Represents weaknesses in disaster planning and emergency response systems. Higher values indicate poorer preparedness.                      | 0–10  |
+| 12   | DrainageSystems                 | Measures the efficiency of urban and rural drainage infrastructure. Higher values indicate better drainage performance.                     | 0–10  |
+| 13   | CoastalVulnerability            | Indicates the susceptibility of coastal regions to flooding caused by cyclones, tides, or storm surges.                                     | 0–10  |
+| 14   | Landslides                      | Represents the likelihood of landslides, which may obstruct rivers and increase flood risk.                                                 | 0–10  |
+| 15   | Watersheds                      | Measures the effectiveness of watershed management practices. Higher values represent better management.                                    | 0–10  |
+| 16   | DeterioratingInfrastructure     | Indicates the condition of roads, bridges, culverts, and drainage structures. Higher values indicate greater deterioration.                 | 0–10  |
+| 17   | PopulationScore                 | Represents population density and exposure to flood-prone areas. Higher values indicate denser populations.                                 | 0–10  |
+| 18   | WetlandLoss                     | Measures the extent of wetland degradation or loss. Wetlands naturally absorb excess water, so greater loss increases flood risk.           | 0–10  |
+| 19   | InadequatePlanning              | Indicates deficiencies in urban planning, land-use management, and flood mitigation policies.                                               | 0–10  |
+| 20   | PoliticalFactors                | Represents the effectiveness of government policies, funding, and implementation of flood management strategies.                            | 0–10  |
