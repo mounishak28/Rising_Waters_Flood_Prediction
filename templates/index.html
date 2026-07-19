@@ -140,13 +140,39 @@ Predicts flood occurrence.
 <div class="card shadow-lg mt-5 p-4">
 
 <h2 class="text-center">
-
 Flood Prediction Form
-
 </h2>
 
-<form action="/predict" method="POST">
+<!-- Instructions Start -->
+<div class="alert alert-info">
 
+<h5>📌 How to Fill the Form</h5>
+
+<p>
+Enter values between <b>0 and 10</b> for every feature.
+</p>
+
+<ul>
+<li><b>0–2:</b> Very Low Impact</li>
+<li><b>3–4:</b> Low Impact</li>
+<li><b>5–6:</b> Moderate Impact</li>
+<li><b>7–8:</b> High Impact</li>
+<li><b>9–10:</b> Very High Impact</li>
+</ul>
+
+<p><b>Example:</b></p>
+
+<ul>
+<li>Heavy rainfall → Monsoon Intensity = 8–10</li>
+<li>Poor drainage → Drainage Systems = 8–10</li>
+<li>High urbanization → Urbanization = 8–10</li>
+<li>Good river management → River Management = 2–4</li>
+</ul>
+
+</div>
+<!-- Instructions End -->
+
+<form action="/predict" method="POST">
 {% for feature in features %}
 
 <div class="mb-3">
