@@ -1,254 +1,138 @@
-.
-
-{% elif feature=="RiverManagement" %}
-Quality of river maintenance and flood control.
-
-{% elif feature=="Deforestation" %}
-Extent of tree removal in the region.
-
-{% elif feature=="Urbanization" %}
-Level of urban development.
-
-{% elif feature=="ClimateChange" %}
-Impact of climate changes on flood risk.
-
-{% elif feature=="DrainageSystems" %}
-Efficiency of drainage infrastructure.
-
-{% elif feature=="WetlandLoss" %}
-Reduction of wetlands that naturally absorb water.
-
-{% endif %}
-
-</small>
-
-</div>
-
-{% endfor %}
-
-<div class="text-center">
-
-<button class="btn btn-primary btn-lg">
-
-Predict Flood
-
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-<div class="footer">
-
-SmartBridge Internship Project
-
-</div>
-
-</body>
-
-</html><!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Prediction</title>
 
-<title>Flood Prediction</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
-<nav class="navbar navbar-dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <h3 class="text-white">🌊 Rising Waters</h3>
 
-<div class="container">
+            <a href="/about" class="btn btn-light">About</a>
+        </div>
+    </nav>
 
-<h3 class="text-white">
-🌊 Rising Waters
-</h3>
+    <!-- Hero Section -->
+    <div class="hero">
 
-<a href="/about" class="btn btn-light">
-About
-</a>
+        <h1>Rising Waters</h1>
 
-</div>
+        <h4>A Machine Learning Approach to Flood Prediction</h4>
 
-</nav>
+        <p>SmartBridge Final Year Project</p>
 
-<div class="hero">
+    </div>
 
-<h1>
+    <div class="container mt-5">
 
-Rising Waters
+        <!-- Information Cards -->
+        <div class="row">
 
-</h1>
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center">
+                    <h4>🌧 Rainfall</h4>
+                    <p>Analyzes rainfall intensity.</p>
+                </div>
+            </div>
 
-<h4>
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center">
+                    <h4>🏙 Urbanization</h4>
+                    <p>Evaluates urban growth impact.</p>
+                </div>
+            </div>
 
-A Machine Learning Approach to Flood Prediction
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center">
+                    <h4>🌳 Environment</h4>
+                    <p>Considers forests and wetlands.</p>
+                </div>
+            </div>
 
-</h4>
+            <div class="col-md-3">
+                <div class="card shadow p-3 text-center">
+                    <h4>🤖 Machine Learning</h4>
+                    <p>Predicts flood occurrence.</p>
+                </div>
+            </div>
 
-<p>
+        </div>
 
-SmartBridge Final Year Project
+        <!-- Prediction Form -->
+        <div class="card shadow-lg mt-5 p-4">
 
-</p>
+            <h2 class="text-center mb-4">
+                Flood Prediction Form
+            </h2>
 
-</div>
+            <div class="instructions">
 
-<div class="container mt-5">
+                <h4>📌 Instructions</h4>
 
-<div class="row">
+                <ul>
+                    <li>Enter values between <strong>0</strong> and <strong>10</strong>.</li>
+                    <li><strong>0</strong> = Very Low Risk</li>
+                    <li><strong>5</strong> = Moderate Risk</li>
+                    <li><strong>10</strong> = Very High Risk</li>
+                    <li>Decimal values (Example: <strong>7.5</strong>) are allowed.</li>
+                </ul>
 
-<div class="col-md-3">
+            </div>
 
-<div class="card shadow p-3">
+            <form action="/predict" method="POST">
 
-<h4>
+                {% for feature in features %}
 
-🌧 Rainfall
+                <div class="mb-3">
 
-</h4>
+                    <label class="form-label fw-bold">
+                        {{ feature.label }}
+                    </label>
 
-<p>
+                    <input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        max="10"
+                        placeholder="Enter value (0-10)"
+                        name="{{ feature.name }}"
+                        class="form-control"
+                        required>
 
-Analyzes monsoon intensity.
+                </div>
 
-</p>
+                {% endfor %}
 
-</div>
+                <div class="text-center mt-4">
 
-</div>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Predict Flood
+                    </button>
 
-<div class="col-md-3">
+                </div>
 
-<div class="card shadow p-3">
+            </form>
 
-<h4>
+        </div>
 
-🏙 Urbanization
+    </div>
 
-</h4>
+    <!-- Footer -->
+    <div class="footer">
 
-<p>
+        SmartBridge Internship Project
 
-Studies urban growth impact.
+    </div>
 
-</p>
+</body>
 
-</div>
-
-</div>
-
-<div class="col-md-3">
-
-<div class="card shadow p-3">
-
-<h4>
-
-🌳 Environment
-
-</h4>
-
-<p>
-
-Considers deforestation and wetlands.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-md-3">
-
-<div class="card shadow p-3">
-
-<h4>
-
-🤖 Machine Learning
-
-</h4>
-
-<p>
-
-Predicts flood occurrence.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="card shadow-lg mt-5 p-4">
-
-<h2 class="text-center">
-Flood Prediction Form
-</h2>
-
-<!-- Instructions Start -->
-<div class="alert alert-info">
-
-<h5>📌 How to Fill the Form</h5>
-
-<p>
-Enter values between <b>0 and 10</b> for every feature.
-</p>
-
-<ul>
-<li><b>0–2:</b> Very Low Impact</li>
-<li><b>3–4:</b> Low Impact</li>
-<li><b>5–6:</b> Moderate Impact</li>
-<li><b>7–8:</b> High Impact</li>
-<li><b>9–10:</b> Very High Impact</li>
-</ul>
-
-<p><b>Example:</b></p>
-
-<ul>
-<li>Heavy rainfall → Monsoon Intensity = 8–10</li>
-<li>Poor drainage → Drainage Systems = 8–10</li>
-<li>High urbanization → Urbanization = 8–10</li>
-<li>Good river management → River Management = 2–4</li>
-</ul>
-
-</div>
-<!-- Instructions End -->
-
-<form action="/predict" method="POST">
-{% for feature in features %}
-
-<div class="mb-3">
-
-<label class="form-label fw-bold">
-{{ feature }}
-</label>
-
-<input
-type="number"
-step="0.01"
-min="0"
-max="10"
-placeholder="Enter value (0-10)"
-name="{{ feature }}"
-class="form-control"
-required>
-
-</div>
-
-{% endfor %}
-
-{% if feature=="MonsoonIntensity" %}
-Strength of seasonal rainfall.
-
-{% elif feature=="TopographyDrainage" %}
-How efficiently rainwater drains from the land
+</html>

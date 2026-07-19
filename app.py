@@ -9,26 +9,26 @@ model = joblib.load("saved_models/flood_model.pkl")
 scaler = joblib.load("saved_models/scaler.pkl")
 
 FEATURES = [
-    "MonsoonIntensity",
-    "TopographyDrainage",
-    "RiverManagement",
-    "Deforestation",
-    "Urbanization",
-    "ClimateChange",
-    "DamsQuality",
-    "Siltation",
-    "AgriculturalPractices",
-    "Encroachments",
-    "IneffectiveDisasterPreparedness",
-    "DrainageSystems",
-    "CoastalVulnerability",
-    "Landslides",
-    "Watersheds",
-    "DeterioratingInfrastructure",
-    "PopulationScore",
-    "WetlandLoss",
-    "InadequatePlanning",
-    "PoliticalFactors"
+    {"name": "MonsoonIntensity", "label": "🌧️ Monsoon Intensity"},
+    {"name": "TopographyDrainage", "label": "🏞️ Topography Drainage"},
+    {"name": "RiverManagement", "label": "🌊 River Management"},
+    {"name": "Deforestation", "label": "🌳 Deforestation"},
+    {"name": "Urbanization", "label": "🏙️ Urbanization"},
+    {"name": "ClimateChange", "label": "🌍 Climate Change"},
+    {"name": "DamsQuality", "label": "🏗️ Dams Quality"},
+    {"name": "Siltation", "label": "🪨 Siltation"},
+    {"name": "AgriculturalPractices", "label": "🌾 Agricultural Practices"},
+    {"name": "Encroachments", "label": "🚧 Encroachments"},
+    {"name": "IneffectiveDisasterPreparedness", "label": "⚠️ Disaster Preparedness"},
+    {"name": "DrainageSystems", "label": "🚰 Drainage Systems"},
+    {"name": "CoastalVulnerability", "label": "🌊 Coastal Vulnerability"},
+    {"name": "Landslides", "label": "⛰️ Landslides"},
+    {"name": "Watersheds", "label": "💧 Watersheds"},
+    {"name": "DeterioratingInfrastructure", "label": "🏚️ Infrastructure Condition"},
+    {"name": "PopulationScore", "label": "👥 Population Density"},
+    {"name": "WetlandLoss", "label": "🌿 Wetland Loss"},
+    {"name": "InadequatePlanning", "label": "📋 Urban Planning"},
+    {"name": "PoliticalFactors", "label": "🏛️ Political Factors"}
 ]
 
 
@@ -42,9 +42,12 @@ def predict():
     values = []
 
     for feature in FEATURES:
-        values.append(float(request.form[feature]))
+        values.append(float(request.form[feature["name"]]))
 
-    df = pd.DataFrame([values], columns=FEATURES)
+    df = pd.DataFrame(
+    [values],
+    columns=[feature["name"] for feature in FEATURES]
+)
 
     scaled = scaler.transform(df)
 
